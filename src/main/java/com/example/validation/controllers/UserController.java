@@ -2,6 +2,8 @@ package com.example.validation.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<UserEntity> saveUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<UserEntity> saveUser(@RequestBody @Valid UserDto userDto) {
         return new ResponseEntity<>(userService.saveUser(userDto), HttpStatus.CREATED);
     }
 

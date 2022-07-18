@@ -1,11 +1,20 @@
 package com.example.validation.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class UserDto {
 
     private int userId;
+    @NotNull(message="Name est obligatoire")
     private String name;
+    @Email(message="met email valide svp")
     private String email;
     private String mobile;
+    @Min(18)
+    @Max(50)
     private String gender;
     private int age;
     private String nationality;
